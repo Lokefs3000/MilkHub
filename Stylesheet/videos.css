@@ -1,0 +1,33 @@
+#videosDiv {
+    width: 568.8px;
+    height: calc(100% - 100px);
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#videosDiv::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.videoCoverImage {
+    max-width: 100%;
+    width: 100%;
+}
+
+.videoCover {
+    width: 100%;
+}
+
+.videoCoverText {
+    color: #FE9900;
+    text-align: center;
+    position: absolute;
+    top: 350px;
+    width: 100%;
+    font-size: 30px;
+}
