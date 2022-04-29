@@ -1,6 +1,6 @@
 //get website link
 var website = window.location.href;
-var trimmed = website.substring(website.indexOf("/", 10) + 19);
+var trimmed = website.substring(website.indexOf("/", 10) + 20);
 
 var hasloaded = false;
 var isPause = false;
