@@ -15,19 +15,22 @@
 }
 
 .videoCoverImage {
-    max-width: 100%;
     width: 100%;
+    height: 426.59px;
 }
 
 .videoCover {
     width: 100%;
+    height: 425.59px;
+    text-decoration: none;
 }
 
 .videoCoverText {
     color: #FE9900;
     text-align: center;
-    position: absolute;
-    top: 350px;
+    position: relative;
+    top: -40px;
     width: 100%;
-    font-size: 30px;
+    transform: scale(33);
+    font-size: 1px;
 }

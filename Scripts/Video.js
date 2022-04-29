@@ -1,6 +1,6 @@
-//get website link
+//Localhost = 12, Github = 20
 var website = window.location.href;
-var trimmed = website.substring(website.indexOf("/", 10) + 20);
+var trimmed = website.substring(website.indexOf("/", 10) + 12);
 
 var hasloaded = false;
 var isPause = false;
@@ -50,10 +50,7 @@ function loadVideo() {
 
         var i = setInterval(function() {
             if(video.readyState > 0) {
-                var minutes = parseInt(video.duration / 60, 10);
-                var seconds = video.duration % 60;
-            
-                document.getElementById("time").setAttribute("max", seconds);
+                document.getElementById("time").setAttribute("max", video.duration);
             
                 clearInterval(i);
         }
@@ -70,6 +67,23 @@ function loadVideo() {
     }
 }
 
+function changeRes(res) {
+    var video = document.getElementById('video');
+    video.setAttribute("src", "Data/Videos/" + trimmed + "/"+res+".mp4");
+    video.currentTime = document.getElementById("time").value;
+    
+    if (!isPause && hasloaded)
+        video.play();
+
+    document.getElementById("720").style.color = "gray";
+    document.getElementById("480").style.color = "gray";
+    document.getElementById("320").style.color = "gray";
+
+    document.getElementById(res).style.color = "black";
+
+    settings = false;
+} 
+
 var isGrabbed = false;
 
 function updateTimeLoop() {
@@ -79,11 +93,31 @@ function updateTimeLoop() {
     setTimeout(function() {
         if (video) {
             if (!isGrabbed)
-            time.value = video.currentTime;
+                time.value = video.currentTime;
         else
             if (video.currentTime != time.value) {
                 video.currentTime = time.value;
             }
+        }
+
+        if (settings) {
+            wait = 5;
+            document.getElementById("settingsDiv").style.visibility = "visible";
+        }
+        else {
+            document.getElementById("settingsDiv").style.visibility = "hidden";
+        }
+
+        if (video) {
+            video.muted = isGrabbed
+
+            var minutes = 00;
+            var seconds = 00;
+
+            seconds = video.duration % 60 - (document.getElementById("time").value % 60);
+            minutes = parseInt(video.duration / 60) - (document.getElementById("time").value / 60);
+
+            document.getElementById("timeLeft").innerHTML = Math.round(minutes) + ":" + Math.round(seconds);
         }
 
         if (video) {
@@ -105,6 +139,7 @@ function updateTimeLoop() {
 
 updateTimeLoop();
 
+var settings = false;
 var Fullscreen = false
 
 function fullscreenButton() {
@@ -119,7 +154,7 @@ function fullscreenButton() {
         document.body.style.backgroundColor = "black";
         document.getElementById("top").style.visibility = "hidden";
         document.getElementById("controls").style.width = "100%";
-        document.getElementById("controls").style.top = "calc(100% - 50px)";
+        document.getElementById("controls").style.top = "calc(100% - 25px)";
     }
     else {
         document.getElementById("video").style.width = "720px";

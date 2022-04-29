@@ -4,6 +4,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    height: 540px;
 }
 
 #controls {
@@ -44,5 +45,45 @@
     right: 0px;
     color: white;
     width: 50px;
+    cursor: pointer;
+}
+
+#blackVidBack {
+    width: 720px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 540px;
+    background-color: black;
+}
+
+#settings {
+    position: absolute;
+    right: 50px;
+    color: white;
+    width: 40px;
+    top: 5px;
+    cursor: pointer;
+}
+
+#settingsDiv {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: white;
+    opacity: 0.3;
+    border-radius: 10px;
+    right: 49px;
+    bottom: 50px;
+}
+
+.option {
+    font-size: 1px;
+    text-align: center;
+    width: 0;
+    transform: scale(25);
+    position: relative;
+    top: 5px;
     cursor: pointer;
 }

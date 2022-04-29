@@ -22,6 +22,7 @@
             <a href="index.html" id="logo"><img src="Data/Images/Logo1.png"></a>
             <a href="videos.html" id="videos">All Videos</a>
         </div>
+        <div id="blackVidBack"></div>
         <video id="video" poster="Data/Images/Black.jpg" onmousemove="wait = 5;">
             Your browser does not support the video tag.
         </video>
@@ -29,6 +30,12 @@
             <input value="0" onmousedown="isGrabbed = true;" onmouseup="isGrabbed = false;" id="time" type="range">
             <p id="timeLeft">00:00</p>
             <img src="Data/Images/Fullscreen.png" onmousedown="fullscreenButton();" id="fullscreen">
+            <img src="Data/Images/Settings.png" onmousedown="settings = !settings;" id="settings">
+            <div id="settingsDiv" style="visibility: hidden;">
+                <p class="option" id="720" onmousedown="changeRes(720)" style="color: black;">720</p><br>
+                <p class="option" id="480" onmousedown="changeRes(480)" style="color: gray;">480</p><br>
+                <p class="option" id="320" onmousedown="changeRes(320)" style="color: gray;">320</p>
+            </div>
         </div>
         <img id="type" onmousemove="wait = 5;" style="visibility: visible;" onmousedown="loadVideo();" class="control" src="Data/Images/Play.png">
     </body>
